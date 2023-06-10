@@ -1,0 +1,104 @@
+{
+	"textures": [
+		{
+			"image": "tutorial_sheet.png",
+			"format": "RGBA8888",
+			"size": {
+				"w": 32,
+				"h": 32
+			},
+			"scale": 1,
+			"frames": [
+				{
+					"filename": "player-pointer_01.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 16,
+						"h": 16
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 6,
+						"w": 16,
+						"h": 10
+					},
+					"frame": {
+						"x": 0,
+						"y": 0,
+						"w": 16,
+						"h": 10
+					}
+				},
+				{
+					"filename": "player-pointer_00.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 16,
+						"h": 16
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 5,
+						"w": 16,
+						"h": 11
+					},
+					"frame": {
+						"x": 16,
+						"y": 0,
+						"w": 16,
+						"h": 11
+					}
+				},
+				{
+					"filename": "key-down_00.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 16,
+						"h": 16
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 16,
+						"h": 16
+					},
+					"frame": {
+						"x": 0,
+						"y": 10,
+						"w": 16,
+						"h": 16
+					}
+				},
+				{
+					"filename": "key-down_01.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 16,
+						"h": 16
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 16,
+						"h": 16
+					},
+					"frame": {
+						"x": 16,
+						"y": 11,
+						"w": 16,
+						"h": 16
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "3.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:3b2b50cdf746684c6d8ea08fd041bbf9:f2fcfb24f212c183670266944cd9ffc5:e6ff1da5a02ec3c9836f532a6edd9ed7$"
+	}
+}
