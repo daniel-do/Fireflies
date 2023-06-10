@@ -14,5 +14,3 @@ class TimeManager {
         });
     }
 }
-TimeManager.tileAnimations = new Map();
-TimeManager.animationFrame = 0;
