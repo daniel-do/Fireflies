@@ -35,6 +35,9 @@ const MappedTileTypes = new Map([
     [TileTypes.Water, 36],
 ]);
 
+TimeManager.tileAnimations = new Map();
+TimeManager.animationFrame = 0;
+
 var PlayerStates;
 (function (PlayerStates) {
     PlayerStates[PlayerStates["Idle"] = 0] = "Idle";
