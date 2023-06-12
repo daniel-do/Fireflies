@@ -3,7 +3,7 @@ class GameScene extends Phaser.Scene {
         super({ key: 'GameScene'});
         this.isGameOver = false;
         this.currentLevelNumber = 1;
-        this.maxLevelNumber = 9;
+        this.maxLevelNumber = 11;
         GameScene.instance = this;
     }
     init() {
@@ -14,7 +14,6 @@ class GameScene extends Phaser.Scene {
         this.load.atlas('player_sheet', 'assets/player_sheet.png', 'assets/player_sheet.json');
         this.load.atlas('tutorial_sheet', 'assets/tutorial_sheet.png', 'assets/tutorial_sheet.json');
         this.load.atlas('particles_sheet', 'assets/particles_sheet.png', 'assets/particles_sheet.json');
-        this.load.atlas('splash_sheet', 'assets/splash_sheet.png', 'assets/splash_sheet.json');
         this.levelLoader.preloadLevelJson();
         this.levelLoader.preloadSpritesheets();
         AudioManager.preload(this);
@@ -403,19 +402,6 @@ class ScreenTransition {
             },
             onComplete: onDone.bind(context)
         });
-    }
-}
-class SplashScreen {
-    constructor(scene, onDone, context) {
-        let gtmkSprite = scene.add.sprite(320 / 2, 320 / 2, 'splash_sheet');
-        let gmtkAnimation = new Animator(scene, gtmkSprite, null);
-        gmtkAnimation.createAnimation('splash', 'splash_sheet', 'gmtk-intro_', 65, 30, 0);
-        gtmkSprite.play('splash');
-        gtmkSprite.once('animationcomplete', () => {
-            gmtkAnimation.destroy();
-            onDone.call(context);
-        });
-        gtmkSprite.setDepth(12);
     }
 }
 class Animator {

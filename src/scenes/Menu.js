@@ -29,7 +29,7 @@ class Menu extends Phaser.Scene {
         // show instructions text
         menuKeyConfig.fontSize = '15px';
         menuKeyConfig.color = '#FFFFFF';
-        this.add.text(game.config.width/2, 100, 'Try to get to the golden torch\nwith both flames for each level', menuKeyConfig).setOrigin(0.5);
+        this.add.text(game.config.width/2, 100, 'Get to the golden torch with\nboth flames in each level', menuKeyConfig).setOrigin(0.5);
 
         // show menu key text
         menuKeyConfig.align = 'left';
