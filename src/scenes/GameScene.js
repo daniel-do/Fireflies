@@ -3,7 +3,7 @@ class GameScene extends Phaser.Scene {
         super({ key: 'GameScene'});
         this.isGameOver = false;
         this.currentLevelNumber = 1;
-        this.maxLevelNumber = 2;
+        this.maxLevelNumber = 11;
         GameScene.instance = this;
     }
     init() {
@@ -47,6 +47,8 @@ class GameScene extends Phaser.Scene {
         }
         if(keyP.isDown) {
             music.stop();
+            this.currentLevelNumber = 1;
+            this.scene.stop();
             this.scene.start('menuScene');
         }
     }
@@ -133,7 +135,7 @@ var config = {
     title: "Fireflies",
     version: "0.0.1",
     disableContextMenu: true,
-    scene: [Menu, GameScene],
+    scene: [Menu, GameScene, Credits],
 };
 var game = new Phaser.Game(config);
 let keySPACE;
