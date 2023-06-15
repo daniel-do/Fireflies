@@ -34,18 +34,23 @@ class Menu extends Phaser.Scene {
         // show menu key text
         menuKeyConfig.align = 'left';
         menuKeyConfig.color = '#A9A9A9';
-        this.add.text(game.config.width/2, game.config.height/2 + 40, 'Controls\n\n↑     - Jump\n← / → - Move\n↓     - Crouch / Swap character\n\t\t\t\t\t\t\t\t(if you\'re on a torch)\nR     - Reset the level', menuKeyConfig).setOrigin(0.5);
+        this.add.text(game.config.width/2, game.config.height/2 + 40, 'Controls\n\n↑     - Jump\n← / → - Move\n↓     - Crouch / Swap character\n\t\t\t\t\t\t\t\t(if you\'re on a torch)\nR     - Reset the level\nC     - Credits', menuKeyConfig).setOrigin(0.5);
 
         menuKeyConfig.align = 'center';
         menuKeyConfig.color = '#FFD700';
         this.add.text(game.config.height/2, game.config.height/2 + 130, 'Press SPACE to start', menuKeyConfig).setOrigin(0.5);
 
         // define keys
+        keyC = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.C);
         keySPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
     }
 
     update()
     {
+        if(keyC.isDown)
+        {
+            this.scene.start('creditsScene');
+        }
         if(keySPACE.isDown)
         {
             this.scene.start('GameScene');

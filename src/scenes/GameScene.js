@@ -3,7 +3,7 @@ class GameScene extends Phaser.Scene {
         super({ key: 'GameScene'});
         this.isGameOver = false;
         this.currentLevelNumber = 1;
-        this.maxLevelNumber = 11;
+        this.maxLevelNumber = 2;
         GameScene.instance = this;
     }
     init() {
@@ -38,11 +38,16 @@ class GameScene extends Phaser.Scene {
                 this.firePlayer.die();
             }
         });
+        keyP = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.P);
     }
     update() {
         InputManager.instance.update();
         if (this.currentLevel) {
             this.currentLevel.update();
+        }
+        if(keyP.isDown) {
+            music.stop();
+            this.scene.start('menuScene');
         }
     }
     startLevel(levelNum) {
@@ -132,6 +137,9 @@ var config = {
 };
 var game = new Phaser.Game(config);
 let keySPACE;
+let keyP;
+let keyC;
+let keyB;
 class TimeManager {
     constructor() { }
     static initialize() {
@@ -150,6 +158,7 @@ class TimeManager {
 }
 TimeManager.tileAnimations = new Map();
 TimeManager.animationFrame = 0;
+let music;
 class AudioManager {
     constructor() { }
     ;
@@ -185,7 +194,7 @@ class AudioManager {
         }
     }
     static startMusic(scene) {
-        let music = scene.sound.add('background_music', {
+        music = scene.sound.add('background_music', {
             mute: false,
             volume: 0.13,
             rate: 1,
@@ -325,29 +334,37 @@ class EndScreen {
         timeString += time.seconds.toString() + 's ';
         timeString += time.milliseconds.toString() + 'ms';
         this.topText = scene.add.text(320 / 2, 100, 'text', {
-            fontFamily: 'Arial',
+            fontFamily: 'Courier',
             align: 'center',
             fontSize: '32px',
         });
         this.bottomText = scene.add.text(320 / 2, 160, 'text', {
-            fontFamily: 'Arial',
+            fontFamily: 'Courier',
+            align: 'center',
+            fontSize: '16px',
+        });
+        this.playAgainText = scene.add.text(320 / 2, 220, 'text', {
+            fontFamily: 'Courier',
             align: 'center',
             fontSize: '16px',
         });
         this.timeText = scene.add.text(320 / 2, 300, 'text', {
-            fontFamily: 'Arial',
+            fontFamily: 'Courier',
             align: 'center',
             fontSize: '10px',
         });
         this.timeText.text = timeString;
         this.topText.text = "The End!";
         this.bottomText.text = "Thank you for playing :)";
+        this.playAgainText.text = "Press P to play again";
         this.timeText.depth = 69 + 1;
         this.topText.depth = 69 + 1;
         this.bottomText.depth = 69 + 1;
+        this.playAgainText.depth = 69 + 1;
         this.timeText.setOrigin(0.5, 0.5);
         this.topText.setOrigin(0.5, 0.5);
         this.bottomText.setOrigin(0.5, 0.5);
+        this.playAgainText.setOrigin(0.5, 0.5);
     }
 }
 class ScreenTransition {
